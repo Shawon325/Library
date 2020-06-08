@@ -1,10 +1,13 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import NavBar from '../NavBar/NavBar'
 import { Button, Table, Modal } from 'react-bootstrap'
 import '../../App.css'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import swal from 'sweetalert';
+// import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const BookCategory = (props) => {
 
@@ -16,14 +19,18 @@ const BookCategory = (props) => {
     const [category,setCategory] = useState([])
     const [e_id,setEId] = useState('')
 
-    useEffect(() => {
+    const fetchMyAPI = () => {
         axios.get('/category')
-        .then(response => {
-            setCategory(response.data)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .then(response => {
+                setCategory(response.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    useEffect(() => {
+        fetchMyAPI()
     }, [])
 
     const resetForm = () => {
@@ -38,6 +45,9 @@ const BookCategory = (props) => {
         .then(response => {
             setLgShow(false)
             resetForm()
+            fetchMyAPI()
+            toast.success("Data Inserted Successfully!", {position: toast.POSITION.BOTTOM_RIGHT})
+            // window.location.reload()
         })
         .catch(error => {
             if (error.response.status === 400) {
@@ -48,13 +58,32 @@ const BookCategory = (props) => {
     }
 
     const DeleteHandler = (category_id) => {
-        axios.delete('/category/' + category_id)
-        .then(response => {
-            console.log(response)
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary data!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
-        .catch(error => {
-            console.log(error)
-        })
+        .then((willDelete) => {
+            if (willDelete) {
+                axios.delete('/category/' + category_id)
+                .then(response => {
+                    console.log(response.data.status)
+                    if (response.data.status == 202) {
+                        swal("Your Book Category data has been deleted!", {
+                            icon: "success",
+                        });
+                        fetchMyAPI()
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            } else {
+                swal("Your data is safe!");
+            }
+        });
     }
 
     const EditHandler = (category_id) => {
@@ -79,10 +108,13 @@ const BookCategory = (props) => {
             console.log(response)
             setEdit(false)
             resetForm()
+            fetchMyAPI()
+            toast.success("Data Updated Successfully!", {position: toast.POSITION.BOTTOM_RIGHT})
+            // window.location.reload()
         })
         .catch(error => {
             console.log(error)
-            if (error.response.status === 400) {
+            if (error.response.status == 400) {
                 error = error.response.data.errors;
                 setError(error)
             }
@@ -91,7 +123,6 @@ const BookCategory = (props) => {
 
     return (
         <Fragment>
-            <NavBar/>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 mt-3">

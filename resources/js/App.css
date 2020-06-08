@@ -10,3 +10,15 @@
     height: 25px;
     width: 28px;
 }
+.navTitle {
+    color: #ffffff;
+}
+.navTitle:hover {
+    color: #ffffff;
+}
+.navList {
+    color: #000000;
+}
+.navList:hover {
+    color: #000000;
+}
