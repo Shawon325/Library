@@ -1,5 +1,5 @@
 .button {
-    margin-left: 89%;
+    margin-left: 91%;
     margin-top: -6%;
 }
 .title {
@@ -21,4 +21,10 @@
 }
 .navList:hover {
     color: #000000;
+}
+.loading {
+    margin-left: 950%;
+}
+.lazyLoad {
+    text-align: center;
 }

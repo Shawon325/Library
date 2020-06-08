@@ -21,6 +21,10 @@ Route::get('/', function () {
 Route::resource('category', 'BookCategoryController');
 Route::get('category/edit/{id}', 'BookCategoryController@edit');
 
+Route::resource('/book', 'BookListController');
+Route::get('/book/create', 'BookListController@create');
+Route::get('/book/edit/{id}', 'BookListController@edit');
+
 Route::get('{ReactRoutePath}', function () {
     return view('Backend.index');
 })->where('ReactRoutePath', '.*');

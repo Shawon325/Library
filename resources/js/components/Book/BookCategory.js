@@ -109,7 +109,9 @@ const BookCategory = (props) => {
             setEdit(false)
             resetForm()
             fetchMyAPI()
-            toast.success("Data Updated Successfully!", {position: toast.POSITION.BOTTOM_RIGHT})
+            toast.success("Data Updated Successfully!", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+            })
             // window.location.reload()
         })
         .catch(error => {
@@ -131,7 +133,7 @@ const BookCategory = (props) => {
                             <div className="container">
                                 <div className="mt-2">
                                     <h2>Book Category List</h2>
-                                    <Button className="button" onClick={() => setLgShow(true)}>Add Category</Button>
+                                    <Button className="button" onClick={() => setLgShow(true)}>Add New</Button>
                                 </div>
                                 <Modal
                                     size="lg"

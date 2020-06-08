@@ -1,15 +1,17 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, lazy, Suspense } from 'react'
 import { Switch, Route } from 'react-router'
-import HomePage from '../components/HomePage/HomePage'
-import BookCategory from '../components/Book/BookCategory'
-import BookList from '../components/Book/BookList'
-import MemberType from '../components/Member/MemberType'
-import MemberList from '../components/Member/MemberList'
+import '../App.css'
+const HomePage = lazy(() => import('../components/HomePage/HomePage'))
+const BookCategory = lazy(() => import('../components/Book/BookCategory'))
+const BookList = lazy(() => import('../components/Book/BookList'))
+const MemberType = lazy(() => import('../components/Member/MemberType'))
+const MemberList = lazy(() => import('../components/Member/MemberList'))
 
 export default class AppRoute extends Component {
     render() {
         return (
-            <Fragment>
+            <Suspense fallback={<div className="lazyLoad">Loading....</div>}>
+                <Fragment>
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route exact path="/book_category" component={BookCategory} />
@@ -17,7 +19,8 @@ export default class AppRoute extends Component {
                     <Route exact path="/member_type" component={MemberType} />
                     <Route exact path="/member_list" component={MemberList} />
                 </Switch>
-            </Fragment>
+                </Fragment>
+            </Suspense>
         )
     }
 }
