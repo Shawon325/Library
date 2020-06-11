@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { Button, Table, Modal } from 'react-bootstrap'
+import { Button, Table, Modal, Spinner } from 'react-bootstrap'
 import '../../App.css'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -228,7 +228,6 @@ const BookCategory = (props) => {
                                         <th>Action</th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
                                         {category.map((category, i) => (
                                             <tr>

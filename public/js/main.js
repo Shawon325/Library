@@ -9876,7 +9876,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".button {\n    margin-left: 91%;\n    margin-top: -6%;\n}\n.title {\n    background-color: #38c172;\n    border-color: #38c172;\n}\n.bts {\n    height: 25px;\n    width: 28px;\n}\n.navTitle {\n    color: #ffffff;\n}\n.navTitle:hover {\n    color: #ffffff;\n}\n.navList {\n    color: #000000;\n}\n.navList:hover {\n    color: #000000;\n}\n.loading {\n    margin-left: 950%;\n}\n.lazyLoad {\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, ".button {\n    margin-left: 91%;\n    margin-top: -6%;\n}\n.title {\n    background-color: #38c172;\n    border-color: #38c172;\n}\n.bts {\n    height: 25px;\n    width: 28px;\n}\n.navTitle {\n    color: #ffffff;\n}\n.navTitle:hover {\n    color: #ffffff;\n}\n.navList {\n    color: #000000;\n}\n.navList:hover {\n    color: #000000;\n}\n.lazyLoad {\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -88433,13 +88433,13 @@ var HomePage = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["lazy"])(f
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ../components/HomePage/HomePage */ "./resources/js/components/HomePage/HomePage.js"));
 });
 var BookCategory = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["lazy"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ../components/Book/BookCategory */ "./resources/js/components/Book/BookCategory.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ../components/Book/BookCategory */ "./resources/js/components/Book/BookCategory.js"));
 });
 var BookList = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["lazy"])(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../components/Book/BookList */ "./resources/js/components/Book/BookList.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../components/Book/BookList */ "./resources/js/components/Book/BookList.js"));
 });
 var MemberType = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["lazy"])(function () {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../components/Member/MemberType */ "./resources/js/components/Member/MemberType.js"));
+  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ../components/Member/MemberType */ "./resources/js/components/Member/MemberType.js"));
 });
 var MemberList = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_0__["lazy"])(function () {
   return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ../components/Member/MemberList */ "./resources/js/components/Member/MemberList.js"));

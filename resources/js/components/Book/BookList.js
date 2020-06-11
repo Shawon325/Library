@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { Button, Table, Modal, Spinner } from 'react-bootstrap'
+import { Button, Table, Modal } from 'react-bootstrap'
 import '../../App.css'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,6 @@ const BookList = (props) => {
 
     const [lgShow, setLgShow] = useState(false)
     const [edit, setEdit] = useState(false)
-    const [loading, setloading] = useState(false)
     const [error,setError] = useState([])
     const [mainid, setId] = useState('')
     const [book_id, setBookId] = useState('')
@@ -39,7 +38,6 @@ const BookList = (props) => {
         axios.get('/book/create')
             .then(response => {
                 setGetAll(response.data)
-                setloading(true)
             })
             .catch(error => {
                 console.log(error)
@@ -371,7 +369,6 @@ const BookList = (props) => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {loading ? GetData : <Spinner animation="border" className="loading" />}
                                             {getAll.map((data, i) => (
                                                 <tr>
                                                     <td>{ i+1 }</td>

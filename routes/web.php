@@ -25,6 +25,9 @@ Route::resource('/book', 'BookListController');
 Route::get('/book/create', 'BookListController@create');
 Route::get('/book/edit/{id}', 'BookListController@edit');
 
+Route::resource('/type_movie', 'MemberTypeController');
+Route::get('/type_movie/edit/{id}', 'MemberTypeController@edit');
+
 Route::get('{ReactRoutePath}', function () {
     return view('Backend.index');
 })->where('ReactRoutePath', '.*');
